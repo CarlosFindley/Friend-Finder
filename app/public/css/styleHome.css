@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/friends.png); /* Source: www.pexels.com/photo/people-silhouette-during-sunset-853168/ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 1em;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.homeBox {
+    padding-top: 11em;
+    margin: 0 auto;
+    width: 50%;
+    /* min-height: calc(100vh - 70px); */
+}
+
+section {
+    width: 100%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-size: 4.5em;
+    font-weight: 550;
+    margin-bottom: .2em;
+}
+
+p {
+    font-size: 2em;
+    margin-bottom: 3.5em;
+}
+
+a {
+    font-size: 1.5em;
+    font-weight: 600;
+    background-color: rgb(0, 193, 232);
+    font-family: "Times New Roman", Times, serif;
+    border: .1em solid rgb(0, 0, 0);
+    border-radius: .5em;
+    padding: .8em;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+a:hover {
+    background-color: rgb(85, 179, 27);
+}
