@@ -15,16 +15,16 @@ module.exports = function(app) {
     // Below code handles when users "visit" a page.
     // ---------------------------------------------------------------------------
 
-app.get("/api/friends", function(req, res) {
-    res.json(friendsData);
-});
+    app.get("/api/friends", function(req, res) {
+        res.json(friendsData);
+    });
 
-// API POST Requests
-// Below code handles when a user submits a form and thus submits data to the server.
-// ---------------------------------------------------------------------------
+    // API POST Requests
+    // Below code handles when a user submits a form and thus submits data to the server.
+    // ---------------------------------------------------------------------------
 
-app.post("/api/friends", function(req, res) {
-
-});
-
-}
+    app.post("/api/friends", function(req, res) {
+    friendsData.push(req.body);
+    res.json(true);
+    });
+};
