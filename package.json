@@ -1,14 +1,14 @@
 {
   "name": "FriendFinder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find out your commonality with other people by filling out this short survey",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Carlos Villalts",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
