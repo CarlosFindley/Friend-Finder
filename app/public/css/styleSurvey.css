@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/cafe.png); /* Source: https://www.pexels.com/photo/blur-blurry-bokeh-close-up-347139/ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-size: 1em;
+    font-family: "Times New Roman", Times, serif;
+}
+
+label, h2, span {
+    display: block;
+}
+
+section {
+    margin: 0 auto;
+    width: 70%;
+}
