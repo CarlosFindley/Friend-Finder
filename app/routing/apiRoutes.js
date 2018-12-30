@@ -24,36 +24,61 @@ module.exports = function(app) {
     // ---------------------------------------------------------------------------
 
     app.post("/api/friends", function(req, res) {
-    // Grab user's score to compare against friendsArray
-        var newUserScore = req.body.scores;
-        var scoresArray = [];
-        var bestMatch = 0;
+    // Get user input data
+    var bestMatch = {
+        name: "",
+        photo: "",
+        friendDiff: 1000 //track the difference between their answer
+    };
 
-    
-        // Loop through friendsArray
-        for (var i = 0; i < friendsData.length; i++) {
-            var scoreDiff = 0;
-            for (var j = 0; j < newUserScore.length; j++) {
-                scoreDiff += (Math.abs(parseInt(friendsData[i].scores[j]) - parseInt(newFriendScores[j])))
-            };
+    var userData = req.body;
+    var newScores = userData.score;
 
-            // Push results into scoresArray
-            scoresArray.push(scoresDiff);
-        };
- 
+    console.log("NEW FRIEND", userData);
+    console.log("----------------------------------------------------------");
+    console.log("\n newSCOREs is: ", newScores);
 
-        // Find best match
-        for (var i = 0; i < scoresArray.length; i++) {
-            if(scoresArray[i] <= scoresArray[bestMatch]) {
-                bestMatch = i;
+    userData.routeName = userData.name.replace(/\s+/g, "").toLowerCase();
+    var totalDifference = 0;
+
+    // Nested for loop
+    //loop through the friends data array of objects to get each friends scores
+    for (var i = 0; i < friendsData.length; i++) {
+        // console.log("Friends[i]", friends[i]); 
+        totalDifference = 0;
+
+        //Grab newScores from user, loop through all the scores of each friend 
+        for (var j = 0; j < friendsData[i].scores[j]; j++) {
+
+            //Calculate the difference between the scores and sum them into the totalDifference 
+            // Math.abs method: returns the absolute value of a number
+
+            totalDifference += Math.abs(parseInt(newScores[j]) - parseInt(friendsData[i].scores[j]));
+            // console.log("\n new score[j]:******" + newScores[j]);
+            // console.log("\n Friend[i].scores[j]: ----------------------" + friends[i].scores[j]);
+            // console.log("\n Total Difference: ===============" + totalDifference);
+
+            // If the sum of differences is < the differences of the current bestMatch
+            if (totalDifference <= bestMatch.friendDiff) {
+                // console.log("\n BESTMATCH(friendDiff): " + bestMatch.friendDiff);
+
+                // Reset the bestMatch to be the new Friend
+                bestMatch.name = friendsData[i].name;
+                bestMatch.photo = friendsData[i].photo;
+                bestMatch.friendDiff = totalDifference;
+
+            } else {
+                console.log("NO MATCH");
             }
-        };
 
-        // Retreive bestMatch data
-        var bFF = friendList[bestMatch];
-        res.json(bFF);
-
-    friendsData.push(req.body);
-    res.json(true);
+        }
+    }
+    // In each of the below cases, when a user submits form data (a JSON object)
+    // ...the JSON is pushed to the appropriate JavaScript array
+    // Then the server saves the data to the friendData array)
+    friendsData.push(userData);
+    // return a JSON with the user's bestMatch
+    res.json(bestMatch);
+    // console.log(bestMatch);
     });
 };
