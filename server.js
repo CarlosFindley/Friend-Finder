@@ -3,7 +3,7 @@
 // Series of npm packages that we will use to give our server userful functionality
 // ==============================================================================
 var express = require("express");
-
+var path = require("path");
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -18,7 +18,7 @@ var PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, "app/public")));
+app.use(express.static(path.join(__dirname, "app/public")));
 
 
 // ==============================================================================
