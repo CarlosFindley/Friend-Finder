@@ -1,35 +1,35 @@
 var friendsArray = [
     {
-        name: "Ahmed",
-        photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        name: "Cat",
+        photo: "https://media.giphy.com/media/l3q2HYpzCMXMFrOnK/giphy.gif",
         scores: [
-            5,
             1,
-            4,
-            4,
-            5,
             1,
-            2,
-            5,
-            4,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
             1      
         ]
     },
 
     {
-        name: "Jessica",
-        photo: "https://media.giphy.com/media/1fosbd3E9m2PN0FyHi/giphy.gif",
+        name: "Zoiberg",
+        photo: "https://media.giphy.com/media/d1tlu8P8b5FkY/giphy.gif",
         scores: [
-            3,
-            5,
-            3,
-            5,
-            5,
-            1,
             2,
-            4,
-            3,
-            4
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
         ]
     },
 
@@ -38,15 +38,15 @@ var friendsArray = [
         photo: "https://media.giphy.com/media/3og0ILzLmNNDtCEAfe/giphy.gif",
         scores: [
             3,
-            2,
-            5,
-            4,
             3,
-            1,
-            4,
-            5,
             3,
-            5
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
         ]
     },
 
@@ -56,14 +56,30 @@ var friendsArray = [
         scores: [
             4,
             4,
-            3,
-            5,
-            4,
-            2,
             4,
             4,
-            3,
+            4,
+            4,
+            4,
+            4,
+            4,
             4
+        ]
+    },
+    {
+        name: "Abuelita",
+        photo: "https://media.giphy.com/media/bPH8jYYmpvSq4/giphy.gif",
+        scores: [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
         ]
     }
 ];
