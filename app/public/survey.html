@@ -25,16 +25,16 @@
                 <hr>
                 <div>
                     <label for="name">Name (Required)</label>
-                    <input type="input" placeholder="enter name">
+                    <input type="input" placeholder="enter name" id="nameCollect" class="validate" required>
                     <label for="photo">Link to your photo (Required)</label>
-                    <input type="input" placeholder="enter link">
+                    <input type="input" placeholder="enter link" id="photoCollect" class="validate" required>
                 </div>
                 <hr>
                 <div>
                     <!-- questions -->
                     <h2>Question 1</h2>
                     <span>I enjoy philosophical conversations</span>
-                    <select>
+                    <select class="browser-default" id="q1">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -43,7 +43,7 @@
                     </select>
                     <h2>Question 2</h2>
                     <span>I am a workaholic</span>
-                    <select>
+                    <select class="browser-default" id="q2">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -52,7 +52,7 @@
                     </select>
                     <h2>Question 3</h2>
                     <span>Hanging out with friends is important to me</span>
-                    <select>
+                    <select class="browser-default" id="q3">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -61,7 +61,7 @@
                     </select>
                     <h2>Question 4</h2>
                     <span>I enjoy outdoor activities</span>
-                    <select>
+                    <select class="browser-default" id="q4">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -70,7 +70,7 @@
                     </select>
                     <h2>Question 5</h2>
                     <span>I prefer intimate moments with a small group of friends over large groups of people</span>
-                    <select>
+                    <select class="browser-default" id="q5">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -79,7 +79,7 @@
                     </select>
                     <h2>Question 6</h2>
                     <span>I prefer large groups of friends over small, intimate gatherings</span>
-                    <select>
+                    <select class="browser-default" id="q6">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -88,7 +88,7 @@
                     </select>
                     <h2>Question 7</h2>
                     <span>Clear friendship boundaries are important to me</span>
-                    <select>
+                    <select class="browser-default" id="q7">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -97,7 +97,7 @@
                     </select>
                     <h2>Question 8</h2>
                     <span>I prefer people with similar ideas to me than people with different ideas</span>
-                    <select>
+                    <select class="browser-default" id="q8">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -106,7 +106,7 @@
                     </select>
                     <h2>Question 9</h2>
                     <span>Politics is important to me</span>
-                    <select>
+                    <select class="browser-default" id="q9">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -115,7 +115,7 @@
                     </select>
                     <h2>Question 10</h2>
                     <span>I am okay with people who believe they are always right</span>
-                    <select>
+                    <select class="browser-default" id="q10">
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -124,7 +124,7 @@
                     </select>
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitButton" data-target="modalData" class="waves-effect waves-light btn modal-trigger cyan lighten-1">Submit</button>
             </form>
         </section>
 
@@ -135,6 +135,88 @@
             <a href="https://github.com/CarlosFindley/Friend-Finder">GitHub Repo</a>
         </div>
     </footer>
+
+    <!-- Materialize Modal Structure -->
+    <div id="modalData" class="modal">
+        <div class="modal-content">
+            <h3>You're Compatible With:</h3>
+            <span id="matchName"></span>
+            <img id="matchPic" src="" alt="Image" width = 250px>
+        </div>
+        <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+        </div>
+    </div>
+
+    <!-- Grab data and send to server script -->
+    <script>
+            $(document).ready(function() {
+                $("#submitButton").on("click", function() {
+                    // Validate form
+                    function validateForm() {
+                        var isValid = true;
+                        $(".validate").each(function() {
+                            if ($(this).val() == "") {
+                                isValid = false;
+                            };
+                        });
+                        $("browser-default").each(function() {
+                            if ($(this).val() == "") {
+                                isValid = false;
+                            }
+                        });
+                        return isValid;
+                    }
+                    // Checks that all questions are answered
+                    if (validateForm() == true) {
+                        // Collects user info
+                        var newUser = {
+                            name: $("#nameCollect").val().trim(),
+                            profilePic: $("#photoCollect").val().trim(),
+                            scores: [
+                                $("#q1").val(),
+                                $("#q2").val(),
+                                $("#q3").val(),
+                                $("#q4").val(),
+                                $("#q5").val(),
+                                $("#q6").val(),
+                                $("#q7").val(),
+                                $("#q8").val(),
+                                $("#q9").val(),
+                                $("#q10").val(),
+                            ]
+                        };
+                        // Grab URL of site
+                        var currentURL = window.location.origin;
+
+                        // AJAX POST to API
+                        $.post(currentURL + "/api/friends", newUser, function(data) {
+                            // Display match data
+                            $("#matchName").text(data.name);
+                            $("#matchPic").attr("src", data.profilePic);
+                        });
+                        // Modal with match
+                        $(".modal").modal();
+
+                        // Clear survey
+                        $("nameCollect").val("");
+                        $("photoCollect").val("");
+                        $("#q1").val("");
+                        $("#q2").val("");
+                        $("#q3").val("");
+                        $("#q4").val("");
+                        $("#q5").val("");
+                        $("#q6").val("");
+                        $("#q7").val("");
+                        $("#q8").val("");
+                        $("#q9").val("");
+                        $("#q10").val("");
+                    } else {
+                        alert("Some fields are empty")
+                    }
+                });
+            });
+    </script>
 
 </body>
 </html>
