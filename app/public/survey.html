@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Bootstrap to be used for the modal alert box -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/styleSurvey.css">
 
-    <script src="jQuery/jquery.js" defer></script>
+     <!-- jQuery CDN link.  I tried having the jQuery file as a local resource but it didn't work-->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
     <title>Friend Finder</title>
 </head>
@@ -20,7 +27,7 @@
                 <h1>Friend Finder Survey</h1>
                 <p>Find out your commonality with other people by filling out this short survey</p>
             </div>
-            <form action="">
+            <form>
                 <!-- user info -->
                 <hr>
                 <div>
@@ -35,6 +42,7 @@
                     <h2>Question 1</h2>
                     <span>I enjoy philosophical conversations</span>
                     <select class="browser-default" id="q1">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -44,6 +52,7 @@
                     <h2>Question 2</h2>
                     <span>I am a workaholic</span>
                     <select class="browser-default" id="q2">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -53,6 +62,7 @@
                     <h2>Question 3</h2>
                     <span>Hanging out with friends is important to me</span>
                     <select class="browser-default" id="q3">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -62,6 +72,7 @@
                     <h2>Question 4</h2>
                     <span>I enjoy outdoor activities</span>
                     <select class="browser-default" id="q4">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -71,6 +82,7 @@
                     <h2>Question 5</h2>
                     <span>I prefer intimate moments with a small group of friends over large groups of people</span>
                     <select class="browser-default" id="q5">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -80,6 +92,7 @@
                     <h2>Question 6</h2>
                     <span>I prefer large groups of friends over small, intimate gatherings</span>
                     <select class="browser-default" id="q6">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -89,6 +102,7 @@
                     <h2>Question 7</h2>
                     <span>Clear friendship boundaries are important to me</span>
                     <select class="browser-default" id="q7">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -98,6 +112,7 @@
                     <h2>Question 8</h2>
                     <span>I prefer people with similar ideas to me than people with different ideas</span>
                     <select class="browser-default" id="q8">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -107,6 +122,7 @@
                     <h2>Question 9</h2>
                     <span>Politics is important to me</span>
                     <select class="browser-default" id="q9">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -116,6 +132,7 @@
                     <h2>Question 10</h2>
                     <span>I am okay with people who believe they are always right</span>
                     <select class="browser-default" id="q10">
+                        <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -137,14 +154,82 @@
     </footer>
 
     <!-- Materialize Modal Structure -->
-    
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Launch demo modal
+        </button> -->
+      
+      <!-- Modal -->
+      <div id="resultsModal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Most Compatible With:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <span>Match</span>
+              <span id="matchName" alt=""></span>
+              <img src="" alt="" id="matchImg">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
 
     <!-- Grab data and send to server script -->
     <script type="text/javascript">
             $(document).ready(function() {
-                
+                $("#submitButton").on("click", function(event) {
+                    event.preventDefault();
+
+
+                    var newUserRes = {
+                        name: $("#nameCollect").val().trim(),
+                        photo: $("#photoCollect").val().trim(),
+                        score: [
+                        parseInt($("#q1").val()),
+                        parseInt($("#q2").val()),
+                        parseInt($("#q3").val()),
+                        parseInt($("#q4").val()),
+                        parseInt($("#q5").val()),
+                        parseInt($("#q6").val()),
+                        parseInt($("#q7").val()),
+                        parseInt($("#q8").val()),
+                        parseInt($("#q9").val()),
+                        parseInt($("#q10").val())
+                        ]
+                    };
+
+                    // Grab URL of site
+                    var currentURL = window.location.origin;
+
+                    // AJAX call
+                    $.post(currentURL + "/api/friends", newUserRes, function(data) {
+                        console.log("AJAX call success", data);
+                        // Grab results from the AJAX
+                        $("#matchName").text(data.name)
+                            // console.log("data.name", data.name);
+                        $("#matchImg").attr("src", data.photo);
+                            // console.log("data.photo", data.photo);
+
+                        // Modal with match
+                        $("#resultsModal").modal("toggle");
+                    });
+                })
             });
     </script>
+
+    <!-- Bootstrap scripts.  Commenting out since the scripts would prevent the app from working :-/ -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  -->
 
 </body>
 </html>
