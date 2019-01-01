@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Bootstrap to be used for the modal alert box -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/styleSurvey.css">
-
-     <!-- jQuery CDN link.  I tried having the jQuery file as a local resource but it didn't work-->
-    <script
+    <!-- jQuery CDN link.  I tried having the jQuery file as a local resource but it didn't work-->
+    <!-- <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
+
+    <!-- Bootstrap to be used for the modal alert box -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/styleSurvey.css">
 
     <title>Friend Finder</title>
 </head>
@@ -41,7 +44,7 @@
                     <!-- questions -->
                     <h2>Question 1</h2>
                     <span>I enjoy philosophical conversations</span>
-                    <select class="browser-default" id="q1">
+                    <select data-placeholder="" id="q1" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -51,7 +54,7 @@
                     </select>
                     <h2>Question 2</h2>
                     <span>I am a workaholic</span>
-                    <select class="browser-default" id="q2">
+                    <select data-placeholder="" id="q2" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -61,7 +64,7 @@
                     </select>
                     <h2>Question 3</h2>
                     <span>Hanging out with friends is important to me</span>
-                    <select class="browser-default" id="q3">
+                    <select data-placeholder="" id="q3" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -71,7 +74,7 @@
                     </select>
                     <h2>Question 4</h2>
                     <span>I enjoy outdoor activities</span>
-                    <select class="browser-default" id="q4">
+                    <select data-placeholder="" id="q4" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -81,7 +84,7 @@
                     </select>
                     <h2>Question 5</h2>
                     <span>I prefer intimate moments with a small group of friends over large groups of people</span>
-                    <select class="browser-default" id="q5">
+                    <select data-placeholder="" id="q5" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -91,7 +94,7 @@
                     </select>
                     <h2>Question 6</h2>
                     <span>I prefer large groups of friends over small, intimate gatherings</span>
-                    <select class="browser-default" id="q6">
+                    <select data-placeholder="" id="q6" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -101,7 +104,7 @@
                     </select>
                     <h2>Question 7</h2>
                     <span>Clear friendship boundaries are important to me</span>
-                    <select class="browser-default" id="q7">
+                    <select data-placeholder="" id="q7" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -111,7 +114,7 @@
                     </select>
                     <h2>Question 8</h2>
                     <span>I prefer people with similar ideas to me than people with different ideas</span>
-                    <select class="browser-default" id="q8">
+                    <select data-placeholder="" id="q8" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -121,7 +124,7 @@
                     </select>
                     <h2>Question 9</h2>
                     <span>Politics is important to me</span>
-                    <select class="browser-default" id="q9">
+                    <select data-placeholder="" id="q9" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -131,7 +134,7 @@
                     </select>
                     <h2>Question 10</h2>
                     <span>I am okay with people who believe they are always right</span>
-                    <select class="browser-default" id="q10">
+                    <select data-placeholder="" id="q10" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
@@ -189,6 +192,22 @@
                 $("#submitButton").on("click", function(event) {
                     event.preventDefault();
 
+                    // Form Validation
+                    function validateForm() {
+                        var isValid = true;
+                        $(".validate").each(function () {
+                            console.log("Form validation");
+
+                            if ($(this).val() === "") {
+                                console.log("Form is invalid")
+
+                                isValid = false;
+                            };
+                        });
+                        return isValid;
+                    };
+
+                if (validateForm()) {
 
                     var newUserRes = {
                         name: $("#nameCollect").val().trim(),
@@ -222,8 +241,14 @@
                         // Modal with match
                         $("#resultsModal").modal("toggle");
                     });
-                })
+                } else {
+                    alert("Some fields are empty, please fill out before submitting.")
+                }
+                 // Clear form
+                 $("#nameCollect").val("");
+                 $("#photoCollect").val("");        
             });
+        });
     </script>
 
     <!-- Bootstrap scripts.  Commenting out since the scripts would prevent the app from working :-/ -->
