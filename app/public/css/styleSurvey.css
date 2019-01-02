@@ -73,3 +73,23 @@ section {
 footer {
     margin: 1em;
 }
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+#matchName {
+    font-size: 1.5em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: .5em;
+
+}
+
+.modal-content {
+    width: 34em;
+}
