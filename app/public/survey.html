@@ -18,7 +18,7 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/styleSurvey.css">
 
     <title>Friend Finder</title>
@@ -28,7 +28,7 @@
         <section>
             <div>
                 <h1>Friend Finder Survey</h1>
-                <p>Find out your commonality with other people by filling out this short survey</p>
+                <p class="intoPStyle">Find out your commonality with other people by filling out this short survey</p>
             </div>
             <form>
                 <!-- user info -->
@@ -40,10 +40,9 @@
                     <input type="input" placeholder="enter link" id="photoCollect" class="validate" required>
                 </div>
                 <hr>
-                <div>
+                <div class="questionsDiv">
                     <!-- questions -->
-                    <h2>Question 1</h2>
-                    <span>I enjoy philosophical conversations</span>
+                    <p class="questionStyle">1) I enjoy philosophical conversations</p>
                     <select data-placeholder="" id="q1" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -52,8 +51,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 2</h2>
-                    <span>I am a workaholic</span>
+                    <p class="questionStyle">2) I am a workaholic</p>
                     <select data-placeholder="" id="q2" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -62,8 +60,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 3</h2>
-                    <span>Hanging out with friends is important to me</span>
+                    <p class="questionStyle">3) Hanging out with friends is important to me</p>
                     <select data-placeholder="" id="q3" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -72,8 +69,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 4</h2>
-                    <span>I enjoy outdoor activities</span>
+                    <p class="questionStyle">4) I enjoy outdoor activities</p>
                     <select data-placeholder="" id="q4" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -82,8 +78,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 5</h2>
-                    <span>I prefer intimate moments with a small group of friends over large groups of people</span>
+                    <p class="questionStyle">5) I prefer intimate moments with a small group of friends over large groups of people</p>
                     <select data-placeholder="" id="q5" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -92,8 +87,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 6</h2>
-                    <span>I prefer large groups of friends over small, intimate gatherings</span>
+                    <p class="questionStyle">6) I prefer large groups of friends over small, intimate gatherings</p>
                     <select data-placeholder="" id="q6" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -102,8 +96,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 7</h2>
-                    <span>Clear friendship boundaries are important to me</span>
+                    <p class="questionStyle">7) Clear friendship boundaries are important to me</p>
                     <select data-placeholder="" id="q7" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -112,8 +105,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 8</h2>
-                    <span>I prefer people with similar ideas to me than people with different ideas</span>
+                    <p class="questionStyle">8) I prefer people with similar ideas to me than people with different ideas</p>
                     <select data-placeholder="" id="q8" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -122,8 +114,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 9</h2>
-                    <span>Politics is important to me</span>
+                    <p class="questionStyle">9) Politics is important to me</p>
                     <select data-placeholder="" id="q9" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -132,8 +123,7 @@
                         <option value="4">4</option>
                         <option value="5">5 (Strongly Agree)</option>
                     </select>
-                    <h2>Question 10</h2>
-                    <span>I am okay with people who believe they are always right</span>
+                    <p class="questionStyle">10) I am okay with people who believe they are always right</p>
                     <select data-placeholder="" id="q10" class="validate">
                         <option value="">Select option</option>
                         <option value="1">1 (Strongly Disagree)</option>
@@ -150,9 +140,9 @@
 
     <footer>
         <div class="container">
-            <a href="/api/friends">API</a>
+            <a href="/api/friends" target="_blank">API</a>
             <span>|</span>
-            <a href="https://github.com/CarlosFindley/Friend-Finder">GitHub Repo</a>
+            <a href="https://github.com/CarlosFindley/Friend-Finder" target="_blank">GitHub Repo</a>
         </div>
     </footer>
 
@@ -242,11 +232,8 @@
                         $("#resultsModal").modal("toggle");
                     });
                 } else {
-                    alert("Some fields are empty, please fill out before submitting.")
+                    alert("Some fields are empty, please fill out the empty fields before submitting.")
                 }
-                 // Clear form
-                 $("#nameCollect").val("");
-                 $("#photoCollect").val("");        
             });
         });
     </script>
